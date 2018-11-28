@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Article{% endblock %}
+
+{% block body %}
+<style>
+    h2{
+        text-align: center;
+    }
+
+    .list-article{
+        display: flex;
+        flex-direction: row;
+    }
+
+    .carte_article{
+        width: 20%;
+        margin: 1em;
+        padding: 1em;
+        background-color: #E3E2E8;
+    }
+</style>
+
+<h2>liste des Article</h2>
+
+<div class="list-article"> 
+
+    {% for Article in Article %}
+        <div class="carte_article">
+            <h3>{{Article.Nom}}</h3>
+            {# <p>Créer le : {{Article.CreatedAt}}</p>
+            <p>Mis a jour le : {{Article.UpdatedAt}}</p> #}
+            <p>{{Article.Contenu}}</p>
+        </div>
+    {% endfor %}
+
+</div>
+{% endblock %}
