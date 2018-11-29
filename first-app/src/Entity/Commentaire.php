@@ -24,7 +24,7 @@ class Commentaire
     /**
      * @ORM\Column(type="datetime")
      */
-    private $cresated_at;
+    private $created_at;
 
     /**
      * @ORM\Column(type="datetime")
@@ -35,11 +35,6 @@ class Commentaire
      * @ORM\Column(type="text")
      */
     private $contenu;
-
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $appartient;
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Article", inversedBy="commentaires")
@@ -63,14 +58,14 @@ class Commentaire
         return $this;
     }
 
-    public function getCresatedAt(): ?\DateTimeInterface
+    public function getCreatedAt(): ?\DateTimeInterface
     {
-        return $this->cresated_at;
+        return $this->created_at;
     }
 
-    public function setCresatedAt(\DateTimeInterface $cresated_at): self
+    public function setCreatedAt(\DateTimeInterface $created_at): self
     {
-        $this->cresated_at = $cresated_at;
+        $this->created_at = $created_at;
 
         return $this;
     }
@@ -95,18 +90,6 @@ class Commentaire
     public function setContenu(string $contenu): self
     {
         $this->contenu = $contenu;
-
-        return $this;
-    }
-
-    public function getAppartient(): ?string
-    {
-        return $this->appartient;
-    }
-
-    public function setAppartient(string $appartient): self
-    {
-        $this->appartient = $appartient;
 
         return $this;
     }

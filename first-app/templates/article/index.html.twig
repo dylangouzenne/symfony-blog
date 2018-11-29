@@ -11,6 +11,7 @@
     .list-article{
         display: flex;
         flex-direction: row;
+        flex-wrap: wrap;
     }
 
     .carte_article{
@@ -19,20 +20,50 @@
         padding: 1em;
         background-color: #E3E2E8;
     }
+
+    #bouton_new_article{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+    }
 </style>
 
-<h2>liste des Article</h2>
+<h2>Liste des Article</h2>
 
 <div class="list-article"> 
 
     {% for Article in Article %}
         <div class="carte_article">
+
             <h3>{{Article.Nom}}</h3>
+            <p>Id de l'article : {{Article.Id}}
             <p>Créer le : {{Article.CreatedAt |date('Y-m-d H:i')}}</p>
             <p>Mis a jour le : {{Article.UpdatedAt |date('Y-m-d H:i')}}</p>
             <p>{{Article.Contenu}}</p>
+            <button><a href="http://127.0.0.1:8001/article/new_commentaire">Ajouter un commentaire</a></button>
         </div>
+        
+        {# {{ dump (Article)  }} #}
     {% endfor %}
 
+
 </div>
+
+<!-- bouton redirection vers la page formulaire ajout article -->
+<div id="bouton_new_article"
+    {# <form method="POST" action="http://127.0.0.1:8001/article/new_article">
+        <input type="submit" value="Créer un nouvel article"></input>
+    </form> #}
+    <button><a href="http://127.0.0.1:8001/article/new_article">Créer un nouvel article</a></button>
+</div>
+
+{% endblock %}
+
+{% block javascripts %}
+    {# a tester plus tard quant jquery sera installer #}
+    {# <script>
+        $(document).ready(function(){
+            console.log("Script working properly");
+        });
+    </script> #}
 {% endblock %}
