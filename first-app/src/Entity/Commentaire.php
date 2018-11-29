@@ -41,6 +41,11 @@ class Commentaire
      */
     private $appartient;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Article", inversedBy="commentaires")
+     */
+    private $fk_article;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -102,6 +107,18 @@ class Commentaire
     public function setAppartient(string $appartient): self
     {
         $this->appartient = $appartient;
+
+        return $this;
+    }
+
+    public function getFkArticle(): ?Article
+    {
+        return $this->fk_article;
+    }
+
+    public function setFkArticle(?Article $fk_article): self
+    {
+        $this->fk_article = $fk_article;
 
         return $this;
     }

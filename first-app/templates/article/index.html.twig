@@ -28,8 +28,8 @@
     {% for Article in Article %}
         <div class="carte_article">
             <h3>{{Article.Nom}}</h3>
-            {# <p>Créer le : {{Article.CreatedAt}}</p>
-            <p>Mis a jour le : {{Article.UpdatedAt}}</p> #}
+            <p>Créer le : {{Article.CreatedAt |date('Y-m-d H:i')}}</p>
+            <p>Mis a jour le : {{Article.UpdatedAt |date('Y-m-d H:i')}}</p>
             <p>{{Article.Contenu}}</p>
         </div>
     {% endfor %}

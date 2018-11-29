@@ -85,4 +85,12 @@ class ArticleController extends AbstractController
         'form' => $form->createView(),
         ));
     }
+
+    /**
+     * @Route("/article/{{ ?? }})
+     */
+    public function viewArticle()
+    {
+
+    }
 }
